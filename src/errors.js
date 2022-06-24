@@ -60,6 +60,14 @@ function Timeout (locale) {
   return new Error(translate('{{timeout}}', locale))
 }
 
+function MissingEvent (deviceId, index, locale) {
+  return new Error(translate(`${deviceId}:${index}  {{event does not exist}}`, locale))
+}
+
+function EventOverwritten (deviceId, index, locale) {
+  return new Error(translate(`${deviceId}:${index}  {{event overwritten}}`, locale))
+}
+
 module.exports = {
   InvalidDeviceID: InvalidDeviceID,
   InvalidDoor: InvalidDoor,
@@ -77,5 +85,7 @@ module.exports = {
   NoReplyFromDevice: NoReplyFromDevice,
   NoReplyToBroadcast: NoReplyToBroadcast,
   InvalidBroadcastReply: InvalidBroadcastReply,
-  Timeout: Timeout
+  Timeout: Timeout,
+  MissingEvent: MissingEvent,
+  EventOverwritten: EventOverwritten
 }
